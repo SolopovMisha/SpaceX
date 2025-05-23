@@ -56,10 +56,10 @@ def save_apod():
     api_token = os.environ.get('api_token')
     nasa_url = get_nasa_api_url(api_token)
     file_path = "images"
-    
+
     create_images_directory(file_path)
     image_data = fetch_nasa_data(nasa_url)
-    
+
     if image_data:
         for index, item in enumerate(image_data):
             process_apod_item(item, index, file_path)

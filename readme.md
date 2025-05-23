@@ -23,7 +23,7 @@
 
 4. **Создайте файл `.env`** в корне проекта и добавьте ключи:
    ```plaintext
-   api_token=ваш_ключ_NASA
+   TELEGRAM_BOT_TOKEN=ваш_ключ_NASA
    bot=ваш_токен_бота_Telegram
    Chat_id=ваш_ID_чата
    ```

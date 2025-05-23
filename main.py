@@ -2,8 +2,8 @@ import os
 import random
 import time
 import io
-from save_apod import save_apod
-from save_epic import save_EPIC
+import save_apod
+import save_epic
 from spacex import fetch_spacex_last_launch
 from glob import glob
 from PIL import Image
@@ -110,12 +110,18 @@ def publish_images(bot, chat_id, interval_hours):
         for image_path in image_paths:
             publish_single_image(bot, chat_id, image_path, interval_hours)
 
-    
-
 
 def main():
     config = load_environment()
     bot = initialize_bot(config['BOT_TOKEN'])
+    
+    images_dir = "images"
+    if not os.path.exists(images_dir):
+        os.makedirs(images_dir)
+
+    save_apod.save_apod()
+    save_epic.save_EPIC()
+    fetch_spacex_last_launch(images_dir)
 
     PUBLISH_INTERVAL_HOURS = 4
 

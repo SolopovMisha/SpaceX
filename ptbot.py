@@ -8,7 +8,7 @@ from telegram.ext import MessageHandler
 from telegram.ext import Updater
 
 logging.basicConfig()
-logging.disable(30)  # disable warnings for beginners
+logging.disable(30)
 
 
 class Bot():
