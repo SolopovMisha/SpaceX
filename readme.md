@@ -23,9 +23,9 @@
 
 4. **Создайте файл `.env`** в корне проекта и добавьте ключи:
    ```plaintext
-   TELEGRAM_BOT_TOKEN=ваш_ключ_NASA
-   bot=ваш_токен_бота_Telegram
-   Chat_id=ваш_ID_чата
+   api_token=ваш_ключ_NASA
+   TELEGRAM_BOT_TOKEN=ваш_токен_бота_Telegram
+   TELEGRAM_CHAT_ID=ваш_ID_чата
    ```
 
 5. **Запустите бота:**
@@ -60,4 +60,4 @@
 ## Требования
 - Python 3.6+
 - Зависимости: `requests`, `python-telegram-bot`, `python-dotenv`, `Pillow`
-```
+  ```
