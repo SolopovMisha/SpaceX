@@ -60,4 +60,3 @@
 ## Требования
 - Python 3.6+
 - Зависимости: `requests`, `python-telegram-bot`, `python-dotenv`, `Pillow`
-  ```
