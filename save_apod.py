@@ -1,9 +1,9 @@
 import os
-from datetime import datetime
 import requests
 from urllib.parse import urlparse
 from PIL import Image
 from save_image import save_image
+from datetime import datetime
 
 
 API_URL = 'https://api.spacexdata.com/v5/launches/'
