@@ -7,7 +7,7 @@ from save_image import save_image
 
 
 def check_api_token():
-    api_token = os.environ.get('api_token')
+    api_token = os.environ.get('NASA_API_TOKEN')
     if not api_token:
         print("NASA API ключ не найден.")
         return None
@@ -26,10 +26,10 @@ def fetch_epic_metadata(api_token, count):
         response = requests.get(url)
         response.raise_for_status()
         return response.json()
-    except requests.exceptions.RequestException as e:
+    except (requests.exceptions.RequestException, requests.exceptions.HTTPError) as e:
         print(f"Error fetching EPIC metadata: {e}")
         return None
-    except (KeyError, IndexError, ValueError) as e:
+    except (KeyError, ValueError) as e:
         print(f"Error parsing EPIC metadata: {e}")
         return None
 

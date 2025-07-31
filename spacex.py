@@ -3,14 +3,10 @@ import os
 from save_image import save_image
 
 
-API_URL = 'https://api.spacexdata.com/v5/launches/'
-response = requests.get(API_URL)
-response.raise_for_status()
-
-image_urls = []
-
-
 def get_launch_data():
+    API_URL = 'https://api.spacexdata.com/v5/launches/'
+    response = requests.get(API_URL)
+    response.raise_for_status()
     return response.json()
 
 
@@ -34,6 +30,9 @@ def save_spacex_images(image_links, file_path, max_count=5):
 
 
 def fetch_spacex_last_launch(file_path):
-    launch_data = get_launch_data()
-    image_links = extract_image_links(launch_data)
-    save_spacex_images(image_links, file_path)
+    try:
+        launch_data = get_launch_data()
+        image_links = extract_image_links(launch_data)
+        save_spacex_images(image_links, file_path)
+    except (requests.exceptions.RequestException, requests.exceptions.HTTPError) as e:
+        print(f"Ошибка получения данных SpaceX: {e}")
